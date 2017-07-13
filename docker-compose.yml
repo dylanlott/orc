@@ -1,0 +1,12 @@
+version: '2'
+services:
+  orc:
+    build:
+      context: ./
+      dockerfile: ./dockerfiles/dev.dockerfile
+    volumes:
+      - ./:~/orc
+    ports:
+      - '4444:4444'
+      - '4445:4445'
+    
