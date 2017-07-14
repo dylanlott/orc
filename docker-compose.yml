@@ -4,9 +4,9 @@ services:
     build:
       context: ./
       dockerfile: ./dockerfiles/dev.dockerfile
-    volumes:
-      - ./:~/orc
     ports:
+      - '4443:4443'
       - '4444:4444'
       - '4445:4445'
-    
+    environment:
+      - NODE_ENV=development

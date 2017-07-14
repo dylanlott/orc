@@ -13,6 +13,7 @@
     "doc": "doc"
   },
   "scripts": {
+    "dev": "docker-compose up",
     "test": "npm run unit-tests && npm run integration-tests && npm run e2e-tests && npm run linter",
     "unit-tests": "mocha test/*.unit.js",
     "integration-tests": "mocha test/*.integration.js",

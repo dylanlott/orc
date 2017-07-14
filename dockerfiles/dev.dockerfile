@@ -9,8 +9,8 @@ RUN echo "deb [arch=amd64] https://apt.z.cash/ jessie main" | tee /etc/apt/sourc
 RUN apt-get update; \
     apt-get -y install vim libssl-dev git python build-essential tor zcash nodejs
 RUN zcash-fetch-params
-VOLUME ./ ~/orc 
-RUN cd ~/orc && npm install && npm link && cd ~
+RUN git clone https://github.com/orcproject/orc ~/orc; \
+    cd ~/orc && npm install && npm link && cd
 RUN mkdir ~/.zcash; \
     echo "rpcuser=orc" >> ~/.zcash/zcash.conf; \
     echo "rpcpassword=orc" >> ~/.zcash/zcash.conf; \
