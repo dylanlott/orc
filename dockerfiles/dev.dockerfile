@@ -11,6 +11,8 @@ RUN apt-get update; \
 RUN zcash-fetch-params
 RUN git clone https://github.com/orcproject/orc ~/orc; \
     cd ~/orc && npm install && npm link && cd
+VOLUME ["~/orc/lib", "~/orc/test/", "~/orc/index.js"]
+RUN pwd 
 RUN mkdir ~/.zcash; \
     echo "rpcuser=orc" >> ~/.zcash/zcash.conf; \
     echo "rpcpassword=orc" >> ~/.zcash/zcash.conf; \
@@ -24,5 +26,8 @@ RUN echo "#\!/bin/bash" >> ~/orc.sh; \
 RUN chmod +x ~/orc.sh
 RUN mkdir -p ~/.config/orc
 VOLUME ["/root/.config/orc"]
+EXPOSE 4443
+EXPOSE 4444
+EXPOSE 4445
 CMD ~/orc.sh
 ENTRYPOINT []

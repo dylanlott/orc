@@ -8,5 +8,9 @@ services:
       - '4443:4443'
       - '4444:4444'
       - '4445:4445'
+    volumes:
+      - ./lib:/orc/lib
+      - ./test:/orc/test
+      - ./index.js:/orc/index.js
     environment:
       - NODE_ENV=development
