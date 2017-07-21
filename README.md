@@ -30,9 +30,9 @@ docker run -v path/to/orc.data:/root/.config/orc -t orcproject/orc:latest
 
 Modify the created configuration at `path/to/orc.data/config` as desired (see 
 the {@tutorial config}) and restart the container for the changes to take 
-effect. You might wish to expose the ports defined for `ControlPort` and 
-`BridgePort` to the host (and update `ControlHostname` and `BridgeHostname` to 
-`0.0.0.0`) and map them to the host.
+effect. You might wish to expose the ports defined for `ControlPort`, 
+`BridgePort`, `DirectoryPort`, and `DashboardPort` to the host (and update 
+their corresponding `*Hostname` to `0.0.0.0`) and map them to the host.
 
 ```
 docker run \
@@ -61,6 +61,10 @@ docker-compose up
 
 This will volume mount the `lib` and `test` directories for development, and 
 then boots up the ORC container. Happy hacking!
+
+> **Note!** If you are exposing services from the docker container to the host
+> you _must_ set the services `*Hostname` property to `0.0.0.0` in your ORC 
+> configuration!
 
 ### Resources
 

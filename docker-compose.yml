@@ -6,11 +6,12 @@ services:
       dockerfile: ./Dockerfile.dev
     volumes:
       - ./bin:/root/orc/bin
+      - ./gui:/root/orc/gui
       - ./lib:/root/orc/lib
       - ./test:/root/orc/test
       - ./package.json:/root/orc/package.json
       - ./index.js:/root/orc/index.js
-      - ~/orc:/root/.config/orc
+      - ~/.config/orc.dev:/root/.config/orc
     ports:
       - "127.0.0.1:4444:4444"
       - "127.0.0.1:4445:4445"

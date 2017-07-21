@@ -37,7 +37,7 @@ WORKDIR /root/orc
 RUN npm install && npm link
 WORKDIR /root/.zcash
 RUN echo "rpcuser=orc" >> /root/.zcash/zcash.conf; \
-    echo "rpcpassword=orc" >> /h.conf; \
+    echo "rpcpassword=orc" >> /root/.zcash/zcash.conf; \
     echo "proxy=127.0.0.1:9050" >> /root/.zcash/zcash.conf; \
     echo "mainnet=1" >> /root/.zcash/zcash.conf; \
     echo "addnode=mainnet.z.cash" >> /root/.zcash/zcash.conf
@@ -48,6 +48,6 @@ RUN echo "#\!/bin/bash" >> /root/orc.sh; \
 RUN chmod +x /root/orc.sh
 RUN mkdir -p /root/.config/orc
 VOLUME ["/root/.config/orc"]
-EXPOSE 4443 4444 4445 4446
+EXPOSE 4443 4444 4445 4446 8080
 CMD ["/bin/bash", "/root/orc.sh"]
 ENTRYPOINT []
