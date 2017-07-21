@@ -80,8 +80,9 @@ module.exports = {
   BridgeShardAuditInterval: '5DAYS',
 
   // Local Node Dashboard and GUI
-  DashboardEnabled: '1',
+  DashboardEnabled: '0',
   DashboardPort: '8080',
+  DashboardHostname: '127.0.0.1',
 
   // Directory Server
   DirectoryStorageBaseDir: datadir,

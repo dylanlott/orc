@@ -247,17 +247,20 @@ function join() {
 }
 
 // Configure dashboard and check enabled
-function dashboard() {
-  if (config.DashboardEnabled) {
-    return new orc.dashboard({
-      logger,
-      port: config.DashboardPort
-    });
-  }
+if (parseInt(config.DashboardEnabled)) {
+  const dashboard = new orc.Dashboard({ logger });
+
+  dashboard.listen(
+    parseInt(config.DashboardPort),
+    config.DashboardHostname,
+    () => {
+      logger.info(
+        `gui listening on ${config.DashboardHostname}:${config.DashboardPort}`
+      );
+    }
+  );
 }
 
-// Initiate dashboard
-dashboard();
 
 function profiles() {
   if (config.ProfilesEnabled.length === 0) {

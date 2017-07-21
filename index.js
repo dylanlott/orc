@@ -98,8 +98,8 @@ module.exports.constants = require('./lib/constants');
 /** {@link module:orc/profiles} */
 module.exports.profiles = require('./lib/profiles');
 
-/** {@link module:orc/dashboard} */
-module.exports.dashboard = require('./lib/dashboard');
+/** {@link Dashboard} */
+module.exports.Dashboard = require('./lib/dashboard');
 
 /** {@link module:orc/utils} */
 module.exports.utils = require('./lib/utils');
